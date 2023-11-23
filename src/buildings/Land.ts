@@ -1,5 +1,5 @@
-import { LandSymbol } from "./congif";
-import { Building } from "./interfaces/Building";
+import { LandSymbol } from "../congif";
+import { Building } from "../interfaces/Building";
 
 export class Land implements Building {
   getLabel(): string {

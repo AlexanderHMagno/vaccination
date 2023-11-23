@@ -1,7 +1,7 @@
-import { People } from "./People";
-import { ClinicSymbol } from "./congif";
-import { Building } from "./interfaces/Building";
-import { Queue } from "./queue";
+import { People } from "../People";
+import { ClinicSymbol } from "../congif";
+import { Building } from "../interfaces/Building";
+import { Queue } from "../queue";
 
 export class Clinic implements Building {
   private _queue: Queue;

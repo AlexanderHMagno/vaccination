@@ -1,4 +1,4 @@
-import { IReport } from "./interfaces/Report";
+import { IReport } from "../interfaces/Report";
 export class ReportMaker {
   private report: IReport;
 

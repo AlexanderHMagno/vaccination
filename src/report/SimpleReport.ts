@@ -1,9 +1,9 @@
-import { Clinic } from "./Clinic";
-import { Mappy } from "./mappy";
-import { IReport } from "./interfaces/Report";
-import { ClinicSymbol } from "./congif";
+import { Clinic } from "../buildings/Clinic";
+import { Mappy } from "../mappy";
+import { IReport } from "../interfaces/Report";
+import { ClinicSymbol } from "../congif";
 
-export class ComplexReport implements IReport {
+export class SimpleReport implements IReport {
   private _map: Mappy;
   constructor(map: Mappy) {
     this._map = map;
@@ -24,7 +24,6 @@ export class ComplexReport implements IReport {
       clinics.map((clinica) => {
         console.group(clinica.getName());
         console.log("People Waiting:", clinica.getPeopleInQueue());
-        console.log("Average Wait Time:", clinica.getCurrentWaitTime());
         console.groupEnd();
       });
       console.groupEnd();

@@ -1,9 +1,9 @@
 import fs from "fs/promises";
 import { Queue } from "./queue";
-import { Household } from "./Household";
+import { Household } from "./buildings/Household";
 import { Building } from "./interfaces/Building";
-import { Clinic } from "./Clinic";
-import { Land } from "./Land";
+import { Clinic } from "./buildings/Clinic";
+import { Land } from "./buildings/Land";
 import { ClinicSymbol, HouseholdUnvaccinated } from "./congif";
 
 export class Mappy {

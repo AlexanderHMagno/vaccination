@@ -1,6 +1,7 @@
 import { Mappy } from "./mappy";
-import { ReportMaker } from "./ReportMaker";
-import { ComplexReport } from "./ComplexReport";
+import { ReportMaker } from "./report/ReportMaker";
+import { ComplexReport } from "./report/ComplexReport";
+import { SimpleReport } from "./report/SimpleReport";
 
 async function main() {
   const map = new Mappy();

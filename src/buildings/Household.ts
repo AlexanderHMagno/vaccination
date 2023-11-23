@@ -1,6 +1,6 @@
-import { People } from "./People";
-import { HouseholdFull, HouseholdUnvaccinated } from "./congif";
-import { Building } from "./interfaces/Building";
+import { People } from "../People";
+import { HouseholdFull, HouseholdUnvaccinated } from "../congif";
+import { Building } from "../interfaces/Building";
 
 type P = { phn: string; fullName: string; isVaccinated: boolean; age: number };
 
