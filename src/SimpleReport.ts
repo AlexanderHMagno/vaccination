@@ -3,7 +3,7 @@ import { Mappy } from "./mappy";
 import { Report1 } from "./interfaces/Report";
 import { ClinicSymbol } from "./congif";
 
-export class ComplexReport implements Report1 {
+export class SimpleReport implements Report1 {
   private _map: Mappy;
   constructor(map: Mappy) {
     this._map = map;
@@ -24,7 +24,6 @@ export class ComplexReport implements Report1 {
       clinics.map((clinica) => {
         console.group(clinica.getName());
         console.log("People Waiting:", clinica.getPeopleInQueue());
-        console.log("Average Wait Time:", clinica.getCurrentWaitTime());
         console.groupEnd();
       });
       console.groupEnd();

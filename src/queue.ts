@@ -11,12 +11,16 @@ export class Queue {
   enqueue(item: any) {
     this.items[this.backIndex] = item;
     this.backIndex++;
-    return item + " inserted";
+    return item;
   }
   dequeue() {
     const item = this.items[this.frontIndex];
     delete this.items[this.frontIndex];
     this.frontIndex++;
     return item;
+  }
+
+  size() {
+    return Object.keys(this.items).length;
   }
 }

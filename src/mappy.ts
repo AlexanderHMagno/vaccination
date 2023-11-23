@@ -4,6 +4,7 @@ import { Household } from "./Household";
 import { Building } from "./interfaces/Building";
 import { Clinic } from "./Clinic";
 import { Land } from "./Land";
+import { ClinicSymbol, HouseholdUnvaccinated } from "./congif";
 
 export class Mappy {
   private _mapData: Building[];
@@ -60,7 +61,7 @@ export class Mappy {
 
   registerForShots() {
     this._mapData
-      .filter((block) => block.getLabel() === "H")
+      .filter((block) => block.getLabel() === HouseholdUnvaccinated)
       .forEach((block) => {
         if (block instanceof Household) {
           //Get Unvaccinated
@@ -69,36 +70,38 @@ export class Mappy {
           const city = this.getCityBoundary(block.getCity());
           //expand in linear + and -.
 
-          for (let index = 1; index < this._maxNumBlocks / 2; index++) {
+          for (let index = 1; index < this._maxNumBlocks; index++) {
             //get Left
-            const left = block.getBlock() - 1;
+            const left = block.getBlock() - index;
 
-            if (left >= 0 && city[left].getLabel() === "C") {
-              if (city[left] instanceof Clinic) {
-                city[left].receivePatients(unvaccinated);
-              }
+            if (left >= 0 && city[left].getLabel() === ClinicSymbol) {
+              (city[left] as Clinic).receivePatients(unvaccinated);
               break;
             }
             //get Right
-            const right = block.getBlock() + 1;
-            if (right < this._maxNumBlocks && city[right].getLabel() === "C") {
-              city[right].receivePatients(unvaccinated);
+            const right = block.getBlock() + index;
+            if (
+              right < this._maxNumBlocks &&
+              city[right].getLabel() === ClinicSymbol
+            ) {
+              (city[right] as Clinic).receivePatients(unvaccinated);
               break;
             }
           }
 
           //Update Unvaccinated
-
           unvaccinated.forEach((person) => person.setVaccinated(true));
         }
       });
   }
 
-  private getCityBoundary(city: string) {
+  getCityBoundary(city: string) {
     const start = this._cities.indexOf(city) * this._maxNumBlocks;
-    const end = start + this._maxNumBlocks - 1;
-
+    const end = start + this._maxNumBlocks;
     return this._mapData.slice(start, end);
+  }
+  getcities() {
+    return this._cities;
   }
 
   private calculateCityBoundary(data: any) {

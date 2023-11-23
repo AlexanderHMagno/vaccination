@@ -1,4 +1,5 @@
 import { People } from "./People";
+import { HouseholdFull, HouseholdUnvaccinated } from "./congif";
 import { Building } from "./interfaces/Building";
 
 type P = { phn: string; fullName: string; isVaccinated: boolean; age: number };
@@ -15,7 +16,9 @@ export class Household implements Building {
   }
 
   getLabel(): string {
-    return this.householdFullVacinated() ? "F" : "H";
+    return this.householdFullVacinated()
+      ? HouseholdFull
+      : HouseholdUnvaccinated;
   }
 
   getUnvaccinated() {
@@ -31,7 +34,6 @@ export class Household implements Building {
     return this._city;
   }
 
-  receivePatients() {}
   private householdFullVacinated() {
     return this._inhabitants.every((person: People) =>
       person.getVaccinatedStatus()

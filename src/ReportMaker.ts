@@ -1,9 +1,12 @@
-import { ComplexReport } from "./ComplexReport";
-
+import { Report1 } from "./interfaces/Report";
 export class ReportMaker {
-  constructor(typeReport: ComplexReport) {}
+  private _reportApp: Report1;
+
+  constructor(reportApp: Report1) {
+    this._reportApp = reportApp;
+  }
 
   printDetails() {
-    return "TO DO";
+    return this._reportApp.printDetails();
   }
 }

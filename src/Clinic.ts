@@ -1,4 +1,5 @@
 import { People } from "./People";
+import { ClinicSymbol } from "./congif";
 import { Building } from "./interfaces/Building";
 import { Queue } from "./queue";
 
@@ -27,6 +28,15 @@ export class Clinic implements Building {
     patients.map((person) => this._queue.enqueue(person));
   }
   getLabel(): string {
-    return "C";
+    return ClinicSymbol;
+  }
+  getCurrentWaitTime() {
+    return this.getPeopleInQueue() * 15;
+  }
+  getPeopleInQueue() {
+    return this._queue.size();
+  }
+  getName() {
+    return this._name;
   }
 }
