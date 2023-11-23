@@ -31,7 +31,7 @@ export class Clinic implements Building {
     return ClinicSymbol;
   }
   getCurrentWaitTime() {
-    return this.getPeopleInQueue() * 15;
+    return (this.getPeopleInQueue() * 15) / this._staff;
   }
   getPeopleInQueue() {
     return this._queue.size();
