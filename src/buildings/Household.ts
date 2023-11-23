@@ -23,7 +23,8 @@ export class Household implements Building {
 
   getUnvaccinated() {
     return this._inhabitants.filter(
-      (person: People) => !person.getVaccinatedStatus()
+      (person: People) =>
+        person.overAgeToVaccine() && !person.getVaccinatedStatus()
     );
   }
 

@@ -1,5 +1,4 @@
 import fs from "fs/promises";
-import { Queue } from "./queue";
 import { Household } from "./buildings/Household";
 import { Building } from "./interfaces/Building";
 import { Clinic } from "./buildings/Clinic";

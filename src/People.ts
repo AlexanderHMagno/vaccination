@@ -1,3 +1,5 @@
+import { currentIntake } from "./congif";
+
 export class People {
   private phn;
   private fullName;
@@ -26,5 +28,9 @@ export class People {
 
   getVaccinatedStatus() {
     return this.isVaccinated;
+  }
+
+  overAgeToVaccine() {
+    return this.age >= currentIntake;
   }
 }
