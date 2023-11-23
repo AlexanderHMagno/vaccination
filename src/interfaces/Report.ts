@@ -1,3 +1,3 @@
-export interface Report1 {
+export interface IReport {
   printDetails(): void;
 }

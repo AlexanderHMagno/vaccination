@@ -1,9 +1,9 @@
 import { Clinic } from "./Clinic";
 import { Mappy } from "./mappy";
-import { Report1 } from "./interfaces/Report";
+import { IReport } from "./interfaces/Report";
 import { ClinicSymbol } from "./congif";
 
-export class SimpleReport implements Report1 {
+export class SimpleReport implements IReport {
   private _map: Mappy;
   constructor(map: Mappy) {
     this._map = map;

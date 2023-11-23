@@ -1,12 +1,12 @@
-import { Report1 } from "./interfaces/Report";
+import { IReport } from "./interfaces/Report";
 export class ReportMaker {
-  private _reportApp: Report1;
+  private report: IReport;
 
-  constructor(reportApp: Report1) {
-    this._reportApp = reportApp;
+  constructor(report: IReport) {
+    this.report = report;
   }
 
   printDetails() {
-    return this._reportApp.printDetails();
+    return this.report.printDetails();
   }
 }
