@@ -7,10 +7,10 @@
 
 </aside>
 
-### Complex Report
+### Simple Report
 
 ![Simple Report](./public/simpleReport.png)
 
-### Simple Report
+### Complex Report
 
 ![Complex Report](./public/implementation.png)
