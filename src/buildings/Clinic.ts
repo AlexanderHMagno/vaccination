@@ -1,5 +1,5 @@
 import { People } from "../People";
-import { ClinicSymbol } from "../congif";
+import { ClinicSymbol, averageTime } from "../congif";
 import { Building } from "../interfaces/Building";
 import { Queue } from "../queue";
 
@@ -31,7 +31,7 @@ export class Clinic implements Building {
     return ClinicSymbol;
   }
   getCurrentWaitTime() {
-    return (this.getPeopleInQueue() * 15) / this._staff;
+    return (this.getPeopleInQueue() * averageTime) / this._staff;
   }
   getPeopleInQueue() {
     return this._queue.size();
